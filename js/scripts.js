@@ -59,8 +59,8 @@ var jobTextInfo = function(comName,jobTitle,difficulty,jobLocation,jobCondition,
   // $("bg-title").text(post.title);
 }
 var reset = function(){
-  $("#job-app")[0].reset();
-  $("#form-post")[0].reset();
+  $("#jobs")[0].reset();
+
 
 }
 var posting =function(comName,jobTitle,difficulty,jobLocation,jobCondition,jobDescription,moreJbSkills){
@@ -68,8 +68,8 @@ var posting =function(comName,jobTitle,difficulty,jobLocation,jobCondition,jobDe
     // console.log(newPost);
 
     $(".entry-level").append('<div class="entry-level">'+
-                            '<div class="alert alert-info">'+
-                            '<h5 class="alert-heading">Job Title:<strong><span id="bg-title">'+jobTitle+'</span></strong></h5>'+
+                            '<div class="ent-design">'+
+                            '<h5>Job Title:<strong><span id="bg-title">'+jobTitle+'</span></strong></h5>'+
                             '<p>Company name: <span class="bg-comp-name">'+comName+'</span></p>'+
                             '<p>Location: <span class="bg-location">'+jobLocation+'</span></p>'+
                             '<p>Skills Required'+
@@ -80,10 +80,8 @@ var posting =function(comName,jobTitle,difficulty,jobLocation,jobCondition,jobDe
                             '<p>Additional skills: <span class="bg-add-skills">'+moreJbSkills+'</span></p>'+
                             '<p>Description: <span class="bg-post-desc">'+jobDescription+'</span></p>'+
                             '<p>Work condition: <span class="bg-condition">'+jobCondition+'</span></p>'+
-
-
                             '<div class="flx-btn">'+
-                            '<button type="button" class="apply">Apply For A Job</button>'+
+                            '<button type="button" class="apply">Apply</button>'+
                             '</div>'+
                               '</div>'+
                             '</div>');
@@ -93,8 +91,8 @@ var posting =function(comName,jobTitle,difficulty,jobLocation,jobCondition,jobDe
 
   else if (difficulty === "intermediate"){
     $(".int-level").append('<div class="int-level">'+
-                          '<div class="alert alert-info">'+
-                          '<h5 class="alert-heading">Job Title:<strong><span id="int-title">'+jobTitle+'</span></strong></h5>'+
+                          '<div class="med-design">'+
+                          '<h5">Job Title:<strong><span id="int-title">'+jobTitle+'</span></strong></h5>'+
                           '<p>Company name: <span id="int-comp-name">'+comName+'</span></p>'+
                           '<p>Location: <span id="int-location">'+jobLocation+'</span></p>'+
                           '<p> Skills Required'+
@@ -105,10 +103,8 @@ var posting =function(comName,jobTitle,difficulty,jobLocation,jobCondition,jobDe
                           '<p>Additional skills: <span id="int-add-skills">'+moreJbSkills+'</span></p>'+
                           '<p>Description: <span id="int-post-desc">'+jobDescription+'</span></p>'+
                           '<p>Work condition: <span id="int-condition">'+jobCondition+'</span></p>'+
-
-
                           '<div class="flx-btn">'+
-                          '<button type="button" class="apply">Apply For A Job</button>'+
+                          '<button type="button" class="apply">Apply</button>'+
                           '</div>'+
                           '</div>'+
                         '</div>');
@@ -117,8 +113,8 @@ var posting =function(comName,jobTitle,difficulty,jobLocation,jobCondition,jobDe
 
   else if (difficulty === "advanced"){
     $(".adv-level").append('<div class="adv-level">'+
-                          '<div class="alert alert-info">'+
-                          '<h5 class="alert-heading">Job Title: <strong><span id="adv-title">'+jobTitle+'</span></strong></h5>'+
+                          '<div class="adv-design">'+
+                          '<h5>Job Title: <strong><span id="adv-title">'+jobTitle+'</span></strong></h5>'+
                           '<p>Company name: <span id="adv-comp-name">'+comName+'</span></p>'+
                           '<p>Location: <span id="adv-location">'+jobLocation+'</span></p>'+
                           '<p> Skills Required'+
@@ -129,13 +125,11 @@ var posting =function(comName,jobTitle,difficulty,jobLocation,jobCondition,jobDe
                           '<p>Additional skills: <span id="adv-add-skills">'+moreJbSkills+'</span></p>'+
                           '<p>Description: <span id="adv-post-desc">'+jobDescription+'</span></p>'+
                           '<p>Work condition: <span id="adv-condition">'+jobCondition+'</span></p>'+
-
-
                           '<div class="flx-btn">'+
-                          '<button type="button" class="apply">Apply For A Job</button>'+
+                          '<button type="button" class="apply">Apply</button>'+
                           '</div>'+
                           '</div>'+
-                        '</div>');
+                          '</div>');
   }
 }
 
@@ -174,10 +168,11 @@ var newpost;
   devsArray.addDeveloper(developer1);
   console.log(devsArray);
   textInfo(developer1);
-
+  $(".our-info").show();
+  $(".app-title").hide();
   $(".app-form").hide();
+  $(".post-title").hide();
   $(".interface").show();
-  $(".jumbotron").show();
   $(".developer-info").show();
 
 
@@ -187,8 +182,6 @@ var newpost;
  ///Company -click function to post the jop posting form
   $("#post-btn").click(function(event){
     event.preventDefault();
-
-
 
     // var newJobPost = new JobPosting();
 
@@ -216,7 +209,9 @@ var newpost;
    jobTextInfo(comName,jobTitle,difficulty,jobLocation,jobCondition,jobDescription,moreJbSkills);
    $(".apply").click(function(){
      $(".app-form").show();
-     $(".jumbotron").hide();
+     $(".app-title").show();
+     $(".post-title").hide();
+     $(".our-info").hide();
      $(".interface").hide();
      $(".post-form").hide();
      $(".developer-info").hide();
@@ -224,7 +219,9 @@ var newpost;
    });
 
    $(".interface").show();
-   $(".jumbotron").show();
+   $(".our-info").show();
+   $(".post-title").hide();
+   $(".app-title").hide();
    $(".post-form").hide();
    $(".developer-info").hide();
    reset();
@@ -234,10 +231,14 @@ var newpost;
 
   $("#posting-btn").click(function(){
     $(".post-form").show();
+    $(".post-title").show();
+    $(".our-info").hide();
+    $(".app-title").hide();
     $(".jumbotron").hide();
     $(".interface").hide();
     $(".app-form").hide();
     $(".developer-info").hide();
+
 
   });
 

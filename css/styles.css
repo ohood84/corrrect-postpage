@@ -2,25 +2,64 @@
   padding-top: 60px;
 }
 
-.alert h4 {
+.alert {
   text-align: center;
   padding: 20px;
   text-decoration: underline;
+  opacity: 0.8;
+  font-weight: bold;
+  font-size: 16px;
+}
+.ent-design{
+  background-color: #d0d2e8;
+  opacity: 0.8;
+  /* font-weight: bold; */
+  font-size: 16px;
+  padding:10px;
+}
+.med-design{
+  background-color: #d0d2e8;
+  opacity: 0.8;
+  /* font-weight: bold; */
+  font-size: 16px;
+  padding:10px;
 }
 
-.btn {
-  display: block;
-  margin: auto;
+.adv-design{
+  background-color: #d0d2e8;
+  opacity: 0.8;
+  /* font-weight: bold; */
+  font-size: 16px;
+  padding:10px;
 }
-
-.jumbotron {
-  background: linear-gradient(90deg, rgba(140,219,2,1) 0%, rgba(9,121,117,1) 35%, rgba(0,196,255,1) 100%);
+.app-title{
+  display:none;
+}
+.post-title{
+  display:none;
+}
+#app-last-name{
+  opacity: 0.8;
+}
+input#app-titl{
+  opacity: 0.8;
+}
+#post-btn{
+  widtjh:70px;
+  padding: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .home-heading {
   text-align: center;
 }
-
+#com-name{
+  opacity: 0.8;
+}
+#job-title{
+  opacity: 0.8;
+}
 #skills{
   height: 100px;
 }
@@ -61,5 +100,84 @@
 }
 .flx-btn{
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  /* padding-right: 50px; */
+}
+
+.dev-info{
+  background-color: #ffece6;
+
+}
+
+.tri{
+  width:80%;
+  height:0px;
+  margin-top: 0px;
+  background-color:transparent;
+  border-left:580px solid transparent;
+  border-top: 680px solid #ffece6;
+
+  margin-bottom: -130px;
+  margin-left: -182px;
+
+ }
+ .parallelogram {
+	width: 99px;
+	height: 62px;
+	transform: skew(45deg);
+	background: transparent;
+
+  border-left:100px solid white;
+  border-bottom: 681px solid white;
+
+  margin-top: -175px;
+  margin-left: -170px;
+}
+.par2 {
+ width: 80px;
+ height: 666px;
+ transform: skew(45deg);
+ background: white;
+
+ border-left:100px solid #ff8a66;
+ border-bottom: 681px solid white;
+
+ margin-top: -682px;
+ margin-left: -66px;
+}
+.first-flex{
+  display: flex;
+  flex-direction: row;
+  height:650px;
+  background-color: white;
+  /* height: 680px; */
+}
+.sec-flex{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  /* margin-left: 10px; */
+  margin-left:-270px;
+  margin-top: -600px;
+}
+.address{
+  color: #002b80;
+  font-size: 50px;
+  font-weight: bold;
+  /* text-align: center; */
+}
+.col-lg-4{
+  z-index: 1;
+}
+.col-md-8{
+  z-index: 2;
+  /* margin-right: 40px; */
+}
+.info-padding{
+  padding-left: 40px;
+  font-weight: bold;
+  font-size: 16px;
+}
+a{
+    color:inherit;
 }
