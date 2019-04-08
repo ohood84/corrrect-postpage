@@ -1,207 +1,248 @@
-function Jobs(){
-  this.jposts=[];
-}
-
-Jobs.prototype.addJob=function(job){
-  this.jposts.push(job);
-}
-
-Jobs.prototype.removeJob=function(job){
-<<<<<<< HEAD
-  this.jposts.pop(job);
-  Jobs() {
-    this.jposts = [];
-  }
-=======
-  this.jbosts.pop(job);
-  Jobs();
->>>>>>> 634be1dd3123f28c823f557f6a4607e4d61ec850
-}
-
-Jobs.prototype.addJob = function(job){
-  this.jposts.push(job);
-}
-
-Jobs.prototype.removeJob = function(job){
-  this.jposts.pop(job);
+function JobPosts(){
+  this.jPosts = [];
 }
 
 
-function JobPosting() {
-  this.companyName;
-  this.title;
-  this.difficulty;
-  this.description;
-  this.skillsRequired = [];
-  this.moreSkills;
+JobPosts.prototype.addJobPosting = function(jobPost){
+  this.jPosts.push(jobPost);
+}
+
+JobPosts.prototype.removeJob = function(jobPost){
+  this.jPosts.pop(jobPosts);
+}
+
+var appSkillListElement="";
+var jbSkillListElement="";
+
+function JobPosting(comName,jobTitle,difficulty,jobLocation,jobCondition,jobDescription,jbSkills,moreJbSkills) {
+  this.companyName = comName;
+  this.title = jobTitle;
+  this.difficulty = difficulty;
+  this.location = jobLocation;
+  this.condition = jobCondition;
+  this.description = jobDescription;
+  this.jbSkills = jbSkills;;
+  this.moreJbSkills = moreJbSkills;
 }
 
 function Developers() {
-  this.developers=[];
+  this.devs=[];
 }
 
- Developers.prototype.addDeveloper=function(dev){
-  this.developers.push(dev);
+ Developers.prototype.addDeveloper = function(dev){
+  this.devs.push(dev);
 }
 
-Developers.prototype.removeDeveloper=function(dev){
-  this.developers.pop(dev);
+ Developers.prototype.removeDeveloper = function(dev){
+  this.devs.pop(dev);
 }
 
-function Developer(fname,lname,title,hRate,experience,skillsRequire){
-  this.fname=fname;
-  this.lname=lname;
-  this.title=title;
-  this.hourlyRate=hRate;
-  this.experience=experience;
-  this.skills=skillsRequire;
+function Developer(fName,lName,title,hourlyRate,experience,devSkills){
+  this.fName = fName;
+  this.lName = lName;
+  this.title = title;
+  this.hourlyRate = hourlyRate;
+  this.experience = experience;
+  this.devSkills = devSkills;
 }
 
-var textInfo=function(dev){
-  $("#app-name").text(dev.fname+" "+dev.lname);
+var textInfo = function(dev){ //to print the developer's information
+  $("#app-name").text(dev.fName+" "+dev.lName);
   $("#app-h").text(dev.hourlyRate);
   $("#app-position").text(dev.title);
-  // alert("hi")
+  $("#print-exp").text(dev.experience);
+
 }
 
-var devloper1,devs=new Developers();
-$(document).ready(function(){
-  this.developers = [];
-}
+var jobTextInfo = function(comName,jobTitle,difficulty,jobLocation,jobCondition,jobDescription,moreJbSkills){ //to print the developer's information
 
-Developers.prototype.addDeveloper = function(developer) {
-  this.developers.push(developer);
+  // $("bg-title").text(post.title);
 }
+var reset = function(){
+  $("#job-app")[0].reset();
+  $("#form-post")[0].reset();
 
-Developers.prototype.removeDeveloper = function(developer) {
-  this.developers.pop(developer);
 }
+var posting =function(comName,jobTitle,difficulty,jobLocation,jobCondition,jobDescription,moreJbSkills){
+  if (difficulty === "entry"){
+    // console.log(newPost);
 
-function Developer(fname,lname,title,hRate,experience,skillsRequire) {
-  this.fname = fname;
-  this.lname = lname;
-  this.title = title;
-  this.hourluRate = hRate;
-  this.experience = experience;
-  this.skills = skillsRequire;
+    $(".entry-level").append('<div class="entry-level">'+
+                            '<div class="alert alert-info">'+
+                            '<h5 class="alert-heading">Job Title:<strong><span id="bg-title">'+jobTitle+'</span></strong></h5>'+
+                            '<p>Company name: <span class="bg-comp-name">'+comName+'</span></p>'+
+                            '<p>Location: <span class="bg-location">'+jobLocation+'</span></p>'+
+                            '<p>Skills Required'+
+                            '<ul>'+
+                            '<span class="bg-skills">'+jbSkillListElement+'</span>'+
+                            '</ul>'+
+                            '</p>'+
+                            '<p>Additional skills: <span class="bg-add-skills">'+moreJbSkills+'</span></p>'+
+                            '<p>Description: <span class="bg-post-desc">'+jobDescription+'</span></p>'+
+                            '<p>Work condition: <span class="bg-condition">'+jobCondition+'</span></p>'+
+
+
+                            '<div class="flx-btn">'+
+                            '<button type="button" class="apply">Apply For A Job</button>'+
+                            '</div>'+
+                              '</div>'+
+                            '</div>');
+
+          // $(".bg-skills").append()
+  }
+
+  else if (difficulty === "intermediate"){
+    $(".int-level").append('<div class="int-level">'+
+                          '<div class="alert alert-info">'+
+                          '<h5 class="alert-heading">Job Title:<strong><span id="int-title">'+jobTitle+'</span></strong></h5>'+
+                          '<p>Company name: <span id="int-comp-name">'+comName+'</span></p>'+
+                          '<p>Location: <span id="int-location">'+jobLocation+'</span></p>'+
+                          '<p> Skills Required'+
+                          '<ul>'+
+                          '<span id="int-skills">'+jbSkillListElement+'</span>'+
+                          '</ul>'+
+                          '</p>'+
+                          '<p>Additional skills: <span id="int-add-skills">'+moreJbSkills+'</span></p>'+
+                          '<p>Description: <span id="int-post-desc">'+jobDescription+'</span></p>'+
+                          '<p>Work condition: <span id="int-condition">'+jobCondition+'</span></p>'+
+
+
+                          '<div class="flx-btn">'+
+                          '<button type="button" class="apply">Apply For A Job</button>'+
+                          '</div>'+
+                          '</div>'+
+                        '</div>');
+  }
+
+
+  else if (difficulty === "advanced"){
+    $(".adv-level").append('<div class="adv-level">'+
+                          '<div class="alert alert-info">'+
+                          '<h5 class="alert-heading">Job Title: <strong><span id="adv-title">'+jobTitle+'</span></strong></h5>'+
+                          '<p>Company name: <span id="adv-comp-name">'+comName+'</span></p>'+
+                          '<p>Location: <span id="adv-location">'+jobLocation+'</span></p>'+
+                          '<p> Skills Required'+
+                          '<ul>'+
+                          '<span id="adv-skills">'+jbSkillListElement+'</span>'+
+                          '</ul>'+
+                          '</p>'+
+                          '<p>Additional skills: <span id="adv-add-skills">'+moreJbSkills+'</span></p>'+
+                          '<p>Description: <span id="adv-post-desc">'+jobDescription+'</span></p>'+
+                          '<p>Work condition: <span id="adv-condition">'+jobCondition+'</span></p>'+
+
+
+                          '<div class="flx-btn">'+
+                          '<button type="button" class="apply">Apply For A Job</button>'+
+                          '</div>'+
+                          '</div>'+
+                        '</div>');
+  }
 }
-
-var newdevloper;
 
 $(document).ready(function()  {
-
-  // company click function to take form inputs
- $("#post-btn").click(function() {
-   
- });
+var newpost;
 
  ///developer click function to take form inputs
  $("#app-btn").click(function(event){
-    var fname,lname,email,title,skills=[],hourlyRate,xperience;
-         fname=$("input#app-first-name").val();
-         lname=$("input#app-last-name").val();
-         title=$("input#app-title").val();
-         hourlyRate=parseInt($("input#app-rate").val());
-         experience= $("input#app-exp").val();
-         $("input:checkbox[name=skills]:checked").each(function(){
-            var skill = $(this).val();
-            skills.push(skill);
-          });
+   event.preventDefault();
+   var devsArray = new Developers();
+   var developer1 = new Developer();
 
-     devloper1=new Developer(fname,lname,title,hourlyRate,experience,skills);
-     // devs.addDeveloper(devloper1);
+   var fname,lname,email,title,hourlyRate,experience;
+   var appSkills =[];
+   fName = $("input#app-first-name").val();
+   lName = $("input#app-last-name").val();
+   title = $("input#app-title").val();
+   hourlyRate = parseInt($("input#app-rate").val());
+   experience = $("input#app-exp").val();
+   developer1.appSkills=[];
 
-     textInfo(devloper1);
-     event.preventDefault();
-   });
+   $("input:checkbox[name=app-skills]:checked").each(function(){
+       appSkillListElement += "<li>" + $(this).val() + "</li>";
+       $("#app-skills").text(appSkillListElement);
+       developer1.appSkills.push($(this).val());
+    });
 
-
- $("#app-btn").click(function() {
-    var fname,lname,email,title,skills=[],hourlyRate,xperience;
-       fname=$("input#app-first-name").val();
-       lname=$("input#app-last-name").val();
-       title=$("input#app-title").val();
-       hourlyRate=parseInt($("input#app-rate").val());
-       experience= $("input#app-exp").val();
-       $("input:checkbox[name=skills]:checked").each(function(){
-          var skill = $(this).val();
-          skills.push(skill);
-        });
-
-   var newDevloper = new Developer(fname,lname,title,hourlyRate,experience,skills);
- });
+  developer1.fName = fName;
+  developer1.lName = lName;
+  developer1.title = title;
+  developer1.hourlyRate = hourlyRate;
+  developer1.experience = experience;
+  developer1.appSkills = appSkills;
 
 
- $("#post-btn").click(function(){
+  devsArray.addDeveloper(developer1);
+  console.log(devsArray);
+  textInfo(developer1);
+
+  $(".app-form").hide();
+  $(".interface").show();
+  $(".jumbotron").show();
+  $(".developer-info").show();
 
 
+});    // to close the  app-btn click.
 
- });
 
-
- ///Company click function to post the jop posting form
-  $("#post").click(function(event){
-
+ ///Company -click function to post the jop posting form
+  $("#post-btn").click(function(event){
     event.preventDefault();
-    show();
+
+
+
+    // var newJobPost = new JobPosting();
 
     var comName = $("#com-name").val();
+    // alert(comName);
     var jobTitle = $("#job-title").val();
     var difficulty = $("#difficulty").val();
     var jobLocation = $("#location").val();
     var jobCondition = $("#condition").val();
     var jobDescription = $("#description").val();
-    var moreSkills =  $("#skills").val();
+    var moreJbSkills =  $("#more-jb-skills").val();
+    var jbSkills;
+     newPost = new JobPosting(comName,jobTitle,difficulty,jobLocation,jobCondition,jobDescription,jbSkills,moreJbSkills);
+   // cName = newPost.comName;
+    // console.log(newPost);
+    newPost.jbSkills = [];
+     jbSkillListElement = "";
+    $("input:checkbox[name=job-skills]:checked").each(function(){
+        jbSkillListElement += "<li>" + $(this).val() + "</li>";
+        newPost.jbSkills.push($(this).val());
+   });
 
 
+   posting(comName,jobTitle,difficulty,jobLocation,jobCondition,jobDescription,moreJbSkills);
+   jobTextInfo(comName,jobTitle,difficulty,jobLocation,jobCondition,jobDescription,moreJbSkills);
+   $(".apply").click(function(){
+     $(".app-form").show();
+     $(".jumbotron").hide();
+     $(".interface").hide();
+     $(".post-form").hide();
+     $(".developer-info").hide();
+     reset();
+   });
 
-    var skills =[];
-    $("input:checkbox[name=skills]:checked").each(function(){
-     var skillsRequired = $(this).val();
-
-     if(difficulty === "easy"){
-      $("#bg-skills").text("<li>"+skillsRequired+"</li>");
-      }
-      else if(difficulty === "intermediate"){
-        $("#int-skills").text("<li>"+skillsRequired+"</li>");
-      }
-      else if(difficulty === "advanced"){
-        $("#adv-skills").text("<li>"+skillsRequired+"</li>");
-      }
-
-     skills.push(skillsRequired);
-     // $('#responses').append( skillsRequired  + "<br>");
-    });
-     // skills.push(moreSkills);
-     var newPost = new JobPosting(comName,jobTitle,difficulty,jobLocation,jobCondition,jobDescription,skills,moreSkills);
+   $(".interface").show();
+   $(".jumbotron").show();
+   $(".post-form").hide();
+   $(".developer-info").hide();
+   reset();
 
 
+  }); //for the post click
 
-     if (difficulty === "easy"){
-       $("#bg-comp-name").text(comName);
-       $("#bg-title").text(jobTitle);
-       $("#bg-location").text(joblocation);
-       $("#bg-add-skills").text(moreSkills);
-       $("#bg-post-desc").text(jobDescription);
-       $("#bg-condition").text(jobCondition);
-     }
+  $("#posting-btn").click(function(){
+    $(".post-form").show();
+    $(".jumbotron").hide();
+    $(".interface").hide();
+    $(".app-form").hide();
+    $(".developer-info").hide();
 
-     else if (difficulty === "intermediate"){
-       $("#int-comp-name").text(comName);
-       $("#int-title").text(jobTitle);
-       $("#int-location").text(joblocation);
-       $("#int-add-skills").text(moreSkills);
-       $("#int-post-desc").text(jobDescription);
-       $("#int-condition").text(jobCondition);
-     }
-     else if (difficulty === "advanced"){
-       $("#adv-comp-name").text(comName);
-       $("#adv-title").text(jobTitle);
-       $("#adv-location").text(joblocation);
-       $("#adv-add-skills").text(moreSkills);
-       $("#adv-post-desc").text(jobDescription);
-       $("#adv-condition").text(jobCondition);
-     }
-     // $("#submit").onclick="location.href='index.html'
   });
+
+
+
+
+
 });

@@ -29,9 +29,13 @@
     height: 100px;
 }
 
+
+
+
 #posting-btn, #apply {
-  padding: 15px;
-  font-size: 22px;
+  /* padding: 15px; */
+  /* font-size: 22px; */
+
 }
 .labels{
   font-size: 20px;
@@ -43,7 +47,19 @@
 }
 
 
+.developer-info{
+  display:none;
+}
 
-.post-display{
-  border: 
+.app-form{
+  display:none;
+}
+
+
+.post-form{
+  display:none;
+}
+.flx-btn{
+  display: flex;
+  flex-direction: row-reverse;
 }
