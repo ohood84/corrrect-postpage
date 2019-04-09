@@ -1,4 +1,7 @@
-.row {
+.show-br{
+  display:none;
+  }
+  .row {
   padding-top: 60px;
 }
 

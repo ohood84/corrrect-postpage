@@ -238,6 +238,8 @@ var newpost;
     $(".interface").hide();
     $(".app-form").hide();
     $(".developer-info").hide();
+    $(".show-br").show();
+    $(".hide-br").hide();
 
 
   });
